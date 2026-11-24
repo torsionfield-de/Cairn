@@ -21,16 +21,9 @@ tasks:
     conclude_timeout: 5
 
 container:
-  image: "ghcr.io/oritera/cairn-worker-container:latest"
-  network_mode: "host"
+  image: "cairn-general-worker:local"
+  network_mode: "bridge"
   completed_action: "stop"
-  cap_add:
-    - "NET_RAW"
-    - "NET_ADMIN"
-
-common_env:
-  TSEC_BASE_URL: "http://<SERVER_HOST>/api"
-  TSEC_AGENT_TOKEN: "common-agent-token"
 
 workers:
   - name: "mock-observer-1"

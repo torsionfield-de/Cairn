@@ -40,7 +40,6 @@ class CodexDriver(RegexSessionDriver):
                 argv=[
                     "codex",
                     "exec",
-                    "--dangerously-bypass-approvals-and-sandbox",
                     "--",
                     prompt,
                 ]
@@ -50,7 +49,6 @@ class CodexDriver(RegexSessionDriver):
             argv=[
                 "codex",
                 "exec",
-                "--dangerously-bypass-approvals-and-sandbox",
                 "--model",
                 env["CODEX_MODEL"],
                 "-c",
@@ -77,7 +75,6 @@ class CodexDriver(RegexSessionDriver):
                 "exec",
                 "resume",
                 session,
-                "--dangerously-bypass-approvals-and-sandbox",
                 "--",
                 prompt,
             ]
@@ -87,7 +84,6 @@ class CodexDriver(RegexSessionDriver):
             "exec",
             "resume",
             session,
-            "--dangerously-bypass-approvals-and-sandbox",
             "--model",
             env["CODEX_MODEL"],
             "-c",

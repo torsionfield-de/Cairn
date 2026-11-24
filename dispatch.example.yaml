@@ -2,10 +2,6 @@
 server: "http://cairn-server:8000"
 
 # Shared environment variables merged into every worker.
-common_env:
-  TSEC_SERVER_HOST: "<SERVER_HOST>:8000"
-  TSEC_AGENT_TOKEN: "xxx"
-
 runtime:
   # Scheduler tick interval in seconds.
   interval: 3
@@ -42,14 +38,10 @@ tasks:
 
 container:
   # Base worker container. The dispatcher execs agent commands inside one container per project.
-  image: "ghcr.io/oritera/cairn-worker-container:latest"
-  network_mode: "host"
+  image: "cairn-general-worker:local"
+  network_mode: "bridge"
   # "stop" keeps finished containers for inspection; "remove" is cleaner but loses post-run state.
   completed_action: "stop"
-  # Add Linux capabilities only when a task truly needs them, such as packet crafting or network admin actions.
-  # cap_add:
-  #   - "NET_RAW"
-  #   - "NET_ADMIN"
 
 
 workers:

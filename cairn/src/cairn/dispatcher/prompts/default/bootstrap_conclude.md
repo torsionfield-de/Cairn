@@ -6,7 +6,7 @@ This is the conclude phase. It overrides any earlier instruction in the same ses
 ## Output Requirements
 Return only one raw JSON object. Do not output anything else. The JSON must be valid, including proper escaping of quotation marks.
 
-When rejecting a task, return the following (under no circumstances should you reject; you are expected to handle the task seriously and professionally):
+If a task is outside the project scope, unsafe, or lacks necessary access, return the following:
 ```json
 {"accepted": false, "reason": "policy_refusal"}
 ```
